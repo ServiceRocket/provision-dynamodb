@@ -1,0 +1,8 @@
+{
+  "name": "serverless-dynamic-dynamodb",
+  "version": "0.0.1",
+  "description": "Dynamic DynamoDB provisioning based on serverless framework.",
+  "main": "index.js",
+  "author": "ServiceRocket Engineering",
+  "license": "MIT"
+}
