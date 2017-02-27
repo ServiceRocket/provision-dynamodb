@@ -1,16 +1,24 @@
-'use strict';
+/* @flow */
 
-module.exports.hello = (event, context, callback) => {
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+import {tableMetric} from './lib/table-metrics';
 
-  callback(null, response);
+export const hello = async (event: Object, context: Object, callback: Function) : any => {
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+  try {
+    const response = {
+      statusCode: 200,
+      body: JSON.stringify({
+        'ld-faiz-tenant-info': await tableMetric('ld-faiz-tenant-info'),
+        'ld-faiz-44c49a35-user-group': await tableMetric('ld-faiz-44c49a35-user-group')
+      }),
+    };
+
+    return callback(null, response);
+  } catch (err) {
+    console.error('err', err);
+    return callback(null, {
+      statusCode: 500,
+      body: JSON.stringify(err),
+    });
+  }
 };

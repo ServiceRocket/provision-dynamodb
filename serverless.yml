@@ -1,17 +1,4 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
-service: aws-nodejs # NOTE: update this with your service name
+service: dynamicdynamodb
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -19,11 +6,20 @@ service: aws-nodejs # NOTE: update this with your service name
 
 provider:
   name: aws
+  stage: faiz
+  region: us-west-2
   runtime: nodejs4.3
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  cfLogs: true
+  profile: labs
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - "dynamodb:DescribeTable"
+      Resource: arn:aws:dynamodb:${self:provider.region}:*:table/*-${self:provider.stage}-*
+    - Effect: Allow
+      Action:
+      - "cloudwatch:GetMetricStatistics"
+      Resource: '*'
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -44,18 +40,30 @@ provider:
 #  environment:
 #    variable1: value1
 
+plugins:
+  - serverless-plugin-browserify
+
 # you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+package:
+  individually: true
+  include:
+    ## workaround for https://github.com/doapp-ryanp/serverless-plugin-browserify/pull/10
+    - yarn.lock
+
+custom:
+  browserify:
+    transform: ['babelify']
+    exclude: ['aws-sdk']
 
 functions:
   hello:
+    name: ${self:provider.stage}-${self:service}-hello
+    description: hello test
     handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: health
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

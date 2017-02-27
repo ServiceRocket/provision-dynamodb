@@ -1,0 +1,12 @@
+{
+  "presets": ["es2015", "babili"],
+  "plugins": [
+    "syntax-async-generators",
+    "transform-regenerator",
+    "syntax-async-functions",
+    "transform-runtime",
+    "transform-flow-strip-types",
+    ["transform-object-rest-spread", { "useBuiltIns": true }]
+  ],
+  "sourceMaps": "inline"
+}
