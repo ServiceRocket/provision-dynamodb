@@ -1,6 +1,5 @@
-/* @flow */
-
 import {tableMetric} from './lib/table-metrics';
+import {capacityRatioStrategy} from './lib/throughput-calculation';
 
 export const hello = async (event: Object, context: Object, callback: Function) : any => {
 
