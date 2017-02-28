@@ -1,13 +1,13 @@
 [
   {
-    "name": "ld-faiz-tenant-info",
+    "name": "my-table-name",
     "readStrategy": {
       "name": "capacity-ratio",
       "upperThresholdRatio": 0.8,
       "lowerThresholdRatio": 0.15,
       "incrementRatio": 3,
       "decrementRatio": 0.8,
-      "lowerBoundUnit": 1,
+      "lowerBoundUnit": 2,
       "upperBoundUnit": 28
     },
     "writeStrategy": {
@@ -16,7 +16,7 @@
       "lowerThresholdRatio": 0.15,
       "incrementRatio": 3,
       "decrementRatio": 0.8,
-      "lowerBoundUnit": 1,
+      "lowerBoundUnit": 2,
       "upperBoundUnit": 28
     }
   }
