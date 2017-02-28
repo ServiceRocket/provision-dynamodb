@@ -3,7 +3,7 @@ cache:
   directories:
     - node_modules
 notifications:
-  email: false
+  email: engineering-team@servicerocket.com
 node_js:
   - '7'
   - '6'

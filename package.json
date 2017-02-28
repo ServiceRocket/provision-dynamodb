@@ -6,9 +6,10 @@
   "author": "ServiceRocket Engineering",
   "license": "MIT",
   "bin": {
-    "provision-dynamodb": "`npm bin`/babel-node ./cli.js"
+    "provision-dynamodb": "cli.js"
   },
   "scripts": {
+    "test": "flow check",
     "compile": "`npm bin`/babel lib --out-dir dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
