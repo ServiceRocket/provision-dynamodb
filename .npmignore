@@ -4,3 +4,8 @@ jspm_packages
 
 # Serverless directories
 .serverless
+
+!dist/
+handler.js
+serverless.yml
+yarn.lock
