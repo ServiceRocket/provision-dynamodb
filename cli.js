@@ -1,9 +1,4 @@
-// const argv = require('yargs').argv;
-// const {processConfigTables} = require('./dist');
-
-// import {processConfigTables} from './lib';
-//
-// processConfigTables(config.tables);
+#!/usr/bin/env node
 
 const fs = require('fs');
 const yargs = require('yargs');

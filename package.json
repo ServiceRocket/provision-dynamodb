@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "flow check",
-    "compile": "`npm bin`/babel lib --out-dir dist",
+    "compile": "babel lib --out-dir dist",
+    "prepublish": "npm run compile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
