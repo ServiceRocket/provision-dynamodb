@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const yargs = require('yargs');
-const {processConfigTables} = require('./dist');
+const {processConfigTables} = require('../dist');
 
 const parseJson = jsonstring => {
   try {
