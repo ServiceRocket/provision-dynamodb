@@ -1,6 +1,6 @@
 {
   "name": "provision-dynamodb",
-  "version": "0.0.3",
+  "version": "1.0.3",
   "description": "Dynamic DynamoDB provisioning based on serverless framework.",
   "main": "index.js",
   "author": "ServiceRocket Engineering",
