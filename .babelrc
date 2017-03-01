@@ -1,5 +1,5 @@
 {
-  "presets": ["es2015", "babili"],
+  "presets": ["es2015"],
   "plugins": [
     "syntax-async-generators",
     "transform-regenerator",

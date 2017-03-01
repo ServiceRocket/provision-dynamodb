@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const yargs = require('yargs');
-const {processConfigTables} = require('../dist');
+const processConfigTables = require('../dist').processConfigTables;
 
 const parseJson = jsonstring => {
   try {
@@ -12,8 +12,8 @@ const parseJson = jsonstring => {
   }
 };
 
-const provisionFromJson = ({jsonstring}) => {
-  const json = parseJson(jsonstring);
+const provisionFromJson = argv => {
+  const json = parseJson(argv.jsonstring);
   processConfigTables(json)
     .then(() => {})
     .catch(err => {
@@ -21,9 +21,9 @@ const provisionFromJson = ({jsonstring}) => {
     });
 };
 
-const provisionFromJsonFile = ({filepath}) => {
-  if (!fs.existsSync(filepath)) {
-    throw new Error(`Invalid path "${filepath}" specified.`);
+const provisionFromJsonFile = argv => {
+  if (!fs.existsSync(argv.filepath)) {
+    throw new Error('Invalid path "' + argv.filepath + '" specified.');
   }
   const content = fs.readFileSync(filepath);
   provisionFromJson({jsonstring: String(content)});

@@ -9,3 +9,5 @@ jspm_packages
 handler.js
 serverless.yml
 yarn.lock
+
+.idea/
