@@ -17,7 +17,7 @@ const provisionFromJson = ({jsonstring}) => {
   processConfigTables(json)
     .then(() => {})
     .catch(err => {
-      throw err
+      throw err;
     });
 };
 
