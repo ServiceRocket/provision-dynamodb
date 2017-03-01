@@ -1,3 +1,1 @@
-const {processConfigTables} = require('./dist');
-
-module.exports = processConfigTables;
+module.exports = require('./dist').processConfigTables;
