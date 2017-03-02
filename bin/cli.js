@@ -31,6 +31,9 @@ const provisionFromJsonFile = argv => {
 
 yargs
   .usage('$0 <cmd> [args]')
+  .command('version', 'Get version number', {}, () => {
+    console.log(require('../package.json').version);
+  })
   .command('json [jsonstring]', 'Run provisioner based on JSON definition', {}, provisionFromJson)
   .command('jsonfile [filepath]', 'Run provisioner based on JSON file', {}, provisionFromJsonFile)
   .demandCommand(1, 'Provisioner command not specified.')
