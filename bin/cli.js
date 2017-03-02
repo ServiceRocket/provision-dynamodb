@@ -25,7 +25,7 @@ const provisionFromJsonFile = argv => {
   if (!fs.existsSync(argv.filepath)) {
     throw new Error('Invalid path "' + argv.filepath + '" specified.');
   }
-  const content = fs.readFileSync(filepath);
+  const content = fs.readFileSync(argv.filepath);
   provisionFromJson({jsonstring: String(content)});
 };
 
